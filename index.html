@@ -8,6 +8,11 @@
 <body>
     <div id="app">
         <!-- この#appの内側にテンプレートを書き込んでいく-->
+        <ul>
+            <li v-for="item in list" v-bind:key="item.id">
+                ID.{{ item.id }} {{ item.name }} HP.{{ item.hp }}
+            </li>
+        </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
     <script src="main.js"></script>
