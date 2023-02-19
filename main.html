@@ -13,12 +13,12 @@
     <!--検索欄-->
     <div class="search">
       <div class="search__result">
-        検索結果 <span class="search__count">6件</span>
+        検索結果 <span class="search__count">{{filteredList.length}}件</span>
       </div>
       <div class="search__condition">
-        <input type="checkbox">セール対象
-        <input type="checkbox">送料無料
-        <select class="search__order">
+        <input type="checkbox" v-model="check1">セール対象
+        <input type="checkbox" v-model="check2">送料無料
+        <select class="search__order" v-model.number="order">
           <option value="0">---並べ替え---</option>
           <option value="1">標準</option>
           <option value="2">安い順</option>
@@ -27,7 +27,7 @@
     </div>
     <!--商品一覧-->
     <div class="products">
-      <div class="product" v-for="(item, index) in list" v-bind:id="index + 1" v-bind:key="index">
+      <div class="product" v-for="(item, index) in filteredList" v-bind:id="index + 1" v-bind:key="index">
         <div class="product__body">
           <template v-if="item.isSale">
             <div class="product__status">SALE</div>
